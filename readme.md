@@ -19,3 +19,10 @@ Link: https://doc.rust-lang.org/book/
 Build system and package manager is called `cargo`. Convenient!
 
 ### Chapter 2 - Guessing Game
+
+* Adding dependencies to `Cargo.toml` e.g. `rand = "0.5.5"` means add rand version 0.5.5. Recompile to add the dependency to the project
+* `std::io` - standard library
+* `let mut guess = String::new()` - initialising a mutable variable as a new String 
+* Basic error handling with `.expect` - prints result if error, but usually we want to replace this with more precise code.
+* `Cargo.lock` freezes dependencies for consistency
+* Shadowing - reusing a variable without creating a new variable. The reason we do this is that if we change a mutable variable, it actually assigns another block of memory to the new value, but the old value still remains IN memory! See [this answer](https://stackoverflow.com/questions/53235334/in-rust-whats-the-difference-between-shadowing-and-mutability)
