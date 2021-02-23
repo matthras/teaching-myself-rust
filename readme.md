@@ -26,3 +26,23 @@ Build system and package manager is called `cargo`. Convenient!
 * Basic error handling with `.expect` - prints result if error, but usually we want to replace this with more precise code.
 * `Cargo.lock` freezes dependencies for consistency
 * Shadowing - reusing a variable without creating a new variable. The reason we do this is that if we change a mutable variable, it actually assigns another block of memory to the new value, but the old value still remains IN memory! See [this answer](https://stackoverflow.com/questions/53235334/in-rust-whats-the-difference-between-shadowing-and-mutability)
+
+# Other Notes
+
+## Compiling from Linux/WSL to Windows
+
+[Source](https://stackoverflow.com/a/62853319)
+
+### Setup (One-off install via `cargo`, does not require changing config)
+
+Need to install mingw64 (Windows-specific compiler) first: `sudo apt-get install mingw64`
+
+Then we need to add the appropriate toolchain to Rust so that cargo knows where to look
+```
+rustup target add x86_64-pc-windows-gnu
+rustup toolchain install stable-x86_64-pc-windows-gnu
+```
+
+### Usage
+
+`cargo build --target x86_64-pc-windows-gnu`
